@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+<div id="slider-container">
+    <div id="slider">
+        <img class="slide" src="Image/1.jpeg" alt="image1" >
+        <img class="slide" src="Image/2.jpeg" alt="image1" >
+        <img class="slide" src="Image/3.jpeg" alt="image1" >
+        <img class="slide" src="Image/4.jpeg" alt="image1" >
+        <img class="slide" src="Image/5.jpeg" alt="image1" >
+    </div>
+</div>
+
+
+<div class="btn-container">
+    <button class="btn" onclick="changeSlide(-1)">Previous</button>
+    <button class="btn" onclick="changeSlide(1)">Next</button>
+</div>
+    
+
+<script>
+    
+
+let currentIndex = 0;
+
+const slides = document.querySelectorAll('.slide');
+
+const totalSlides = slides.length;
+
+const slider = document.getElementById('slider');
+
+function changeSlide(offset) {
+    currentIndex = (currentIndex + offset + totalSlides) % totalSlides;
+
+
+    const position = -currentIndex * 100;
+
+    slider.style.transform = `translateX(${position}%)`;
+}
+
+</script>
+</body>
+</html>
